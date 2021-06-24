@@ -2,4 +2,4 @@
   gather_facts: false 
   become: yes 
   roles:
-    - config-tower
+    - config_tower
