@@ -35,7 +35,7 @@
 
 - name: Debug instances 
   debug:
-    msg: "Server is {{ __instance.__openstack_server.instance_name }}"
+    msg: "Server is {{ __instance.__openstack_server.name }}"
     verbosity: 2
   loop: "{{ r_instances.results }}"
   loop_control:
@@ -48,7 +48,7 @@
     cloud: openstack
     state: "{{ openstack_server_state | default('present') }}"
     reuse: yes
-    server: "{{ __instance.__openstack_server.instance_name }}"
+    server: "{{ __instance.__openstack_server.name }}"
     network: ext_network
     wait: true
     timeout: 180
