@@ -2,23 +2,14 @@
 # tasks file for roles/osp-instance-delete
 - name: Fetch Instance Info
   os_server_info:
-    cloud: 
-      openstack:
-        auth:
-          auth_url: http://192.0.2.21:5000
-          username: "admin"
-          password: "r3dh4t1!"
-          project_id: 4e07f423a12f437388a97a533bb9eef9
-          project_name: "admin"
-          user_domain_name: "Default"
-        region_name: "regionOne"
-        interface: "public"
-        identity_api_version: 3
+    cloud: openstack
   register: result
-- name: Delete instances
+
+
+- name: Delete all instances
   os_server:
-    state: absent
+    cloud: openstack
     name: "{{ item.name }}"
+    state: absent
     timeout: 200
   with_items: "{{result.openstack_servers}}"
-     
