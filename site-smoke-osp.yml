@@ -9,10 +9,10 @@
       - osp.smoke
       
   - name: Curl website
-    shell: "curl {{ item.public_v4 }}"
+    shell: "curl http://{{ item.public_v4 }}"
     register: webpage
     loop: "{{result.openstack_servers}}"
-    when: item.security_groups  == "apps"
+    when: item.metadata.group  == "frontends"
     tags:
       - osp.smoke
 
