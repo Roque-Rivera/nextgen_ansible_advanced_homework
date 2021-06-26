@@ -8,10 +8,13 @@
     replace: 'Defaults  !requiretty'
     backup: yes
 
-- name: enable repos
-  get_url:
-    url: http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
-    dest: /etc/yum.repos.d/internal.repo
- 
-#- name: install base tools and packages
 
+- name: Repos from template #own_directory_in_vault.
+  template: src=repos_template.j2 dest="/etc/yum.repos.d/rhel7.repo"
+  with_items: yum_repo_files
+
+
+#- name: enable repos
+#  get_url:
+#    url: http://www.opentlc.com/download/ansible_bootcamp/repo/internal.repo
+#    dest: /etc/yum.repos.d/internal.repo
