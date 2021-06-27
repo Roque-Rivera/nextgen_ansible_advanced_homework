@@ -51,7 +51,7 @@
     server: "{{ __instance.__openstack_server.name }}"
     network: ext_network
     wait: true
-    timeout: 180
+    timeout: 600
   loop: "{{ r_instances.results }}"
   loop_control:
     loop_var: __instance

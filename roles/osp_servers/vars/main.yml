@@ -19,14 +19,14 @@ osp_servers:
     group: apps
     deployment_name: QA
 
-#  - name: app2
-#    state: present
-#    image: rhel-guest
-#    key_name: ansible_ssh
-#    flavor: m1.medium
-#    security_group: apps
-#    group: apps
-#    deployment_name: QA
+  - name: app2
+    state: present
+    image: rhel-guest
+    key_name: ansible_ssh
+    flavor: m1.medium
+    security_group: apps
+    group: apps
+    deployment_name: QA
 
   - name: db
     state: present
