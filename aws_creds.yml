@@ -4,8 +4,8 @@
   tasks:
   - name: Install required packages 
     yum: 
-     name: "{{item}}"
-     state: latest 
+      name: "{{item}}"
+      state: latest 
     loop: 
       - python 
       - python-pip 
@@ -13,8 +13,8 @@
       - gcc
   - name: Install tower-cli
     pip:
-     name: ansible-tower-cli
-     state: latest
+      name: ansible-tower-cli
+      state: latest
   - name: List key files
     shell: (cd /root/.ssh; find . -maxdepth 1 -type f -iname '*key.pem')| cut -d'/' -f2
     register: file_to_copy
@@ -54,5 +54,3 @@
       job_type: run
       playbook: site-smoketest-aws.yml
       project: "00_Homework Assignment"
-
-    
