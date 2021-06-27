@@ -26,8 +26,8 @@
   uri:
     url: http://{{ item.public_v4 }}
     return_content: yes
-   loop: "{{result.openstack_servers}}"
-   when: item.metadata.group  == "frontends"
+  loop: "{{result.openstack_servers}}"
+  when: item.metadata.group  == "frontends"
    tags:
      - osp.smoke
   register: this
